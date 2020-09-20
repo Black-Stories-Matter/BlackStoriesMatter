@@ -4,7 +4,8 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import BookContainer from "../BookContainer/BookContainer";
 import Error from "../Error/Error";
 import Header from "../Header/Header";
-import Login from "../Login/Login";
+import Welcome from "../Welcome/Welcome";
+// import Login from "../Login/Login";
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
@@ -95,7 +96,7 @@ class App extends Component {
               exact
               path="/"
               render={() => {
-                return <Login setUser={this.setUser} />;
+                return <Welcome />;
               }}
             />
             <Route
