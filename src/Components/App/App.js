@@ -18,23 +18,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookDetails: [],
+      books: [],
+      error: null,
+      isLoaded: false,
     };
   }
 
   componentDidMount = () => {
-    let requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
 
-    fetch(
-      "https://black-stories-matter-api.herokuapp.com/api/v1/books",
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
+    fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books")
+      .then((response) => response.json())
+      .then(
+        (data) => {
+          this.setState({ books: data.data, isLoaded: true });
+        },
+        (error) => {
+          this.setState({ error, isLoaded: true });
+        }
+      );
   };
 
   render() {
