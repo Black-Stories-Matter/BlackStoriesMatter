@@ -12,28 +12,15 @@ const Wrapper = styled.div`
   margin: 1em;
 `;
 
-const BookPreview = ({ title, authorName, id, favorite, toggleFavorites }) => {
+const BookPreview = (props) => {
   return (
     <Wrapper>
-      <p>{title}</p> <br />
-      <p>{authorName}</p>
-      {favorite ? (
-        <div>
-          <MdHeart
-            color="#FF2243"
-            fontSize="40"
-            onClick={() => toggleFavorites(id)}
-          />
-        </div>
-      ) : (
-        <div>
-          <MdHeartOutline
-            color="black"
-            fontSize="40"
-            onClick={() => toggleFavorites(id)}
-          />
-        </div>
-      )}
+      <h3>Title</h3>
+      <h4>Author</h4>
+      {/* <img src="" alt=""> */}
+      <p>description</p>
+      <p>category</p>
+      {/* <a href="">More info</a> */}
     </Wrapper>
   );
 };

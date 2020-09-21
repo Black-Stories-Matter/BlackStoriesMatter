@@ -1,13 +1,13 @@
-import { fetchIsbns, fetchTitles } from "../../apiCalls";
+// import Login from "../Login/Login";
+import { fetchBooks } from "../../apiCalls";
 import { GlobalStyle, theme } from "../../theme/globalStyle";
 import { Route, Redirect, Switch } from "react-router-dom";
 import BookContainer from "../BookContainer/BookContainer";
 import Error from "../Error/Error";
 import Header from "../Header/Header";
-import Welcome from "../Welcome/Welcome";
-// import Login from "../Login/Login";
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import Welcome from "../Welcome/Welcome";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -18,79 +18,30 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authors: [
-        ["Brown-Wood", "JaNay"],
-        ["Copeland", "Misty"],
-        ["Grimes", "Nikki"],
-        ["Johnson", "Angela"],
-        ["McKissack", "Patricia"],
-        ["Woodson", "Jacqueline"],
-      ],
-      allIsbns: [],
-      bookInfo: [],
-      user: "",
+      bookDetails: [],
     };
   }
 
   componentDidMount = () => {
-    this.state.authors.map(async (a) => {
-      await fetchIsbns(a[0], a[1])
-        .then((result) =>
-          this.setState({ allIsbns: [...this.state.allIsbns, ...result] })
-        )
-        .then(() => this.getTitles())
-        .catch((error) => console.log("error", error));
-    });
-  };
+    let requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
 
-  getTitles = () => {
-    this.state.allIsbns.map(async (isbn) => {
-      await fetchTitles(isbn)
-        .then((result) =>
-          this.setState({ bookInfo: [...this.state.bookInfo, ...result] })
-        )
-        .then(() => this.filterFormats())
-        .then(() => this.removeDuplicates())
-        .then(() => this.sortAlphabetically());
-    });
-  };
-
-  filterFormats = () => {
-    let filteredFormats = this.state.bookInfo.filter(
-      (book) => book.formatCode === "HC"
-    );
-    this.setState({ bookInfo: [...filteredFormats] });
-  };
-
-  removeDuplicates = () => {
-    let uniqueTitles = Array.from(
-      new Set(this.state.bookInfo.map((book) => book.title))
-    ).map((title) => {
-      return this.state.bookInfo.find((book) => book.title === title);
-    });
-    this.setState({ bookInfo: [...uniqueTitles] });
-  };
-
-  sortAlphabetically = () => {
-    let alphabetical = this.state.bookInfo.sort((a, b) =>
-      a.title > b.title ? 1 : -1
-    );
-    this.setState({ bookInfo: [...alphabetical] });
-  };
-
-  setUser = (user) => {
-    this.setState({ user: user });
-  };
-
-  resetUser = () => {
-    this.setState({ user: "" });
+    fetch(
+      "https://black-stories-matter-api.herokuapp.com/api/v1/books",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Header user={this.state.user} resetUser={this.resetUser} />
+          <Header />
           <Switch>
             <Route
               exact
@@ -101,9 +52,9 @@ class App extends Component {
             />
             <Route
               exact
-              path="/Books"
+              path="/books"
               render={() => {
-                return <BookContainer bookInfo={this.state.bookInfo} />;
+                return <BookContainer />;
               }}
             />
             <Route path="/error" render={() => <Error />} />
