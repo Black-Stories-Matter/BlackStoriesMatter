@@ -1,12 +1,3 @@
-export const fetchBooks = async () => {
-  const response = await fetch(
-    "https://black-stories-matter-api.herokuapp.com/api/v1/books"
-  );
-
-  const data = response.json();
-  return data;
-};
-
 // export const fetchIsbns = async (lastName, firstName) => {
 //   const response = await fetch(
 //     `https://reststop.randomhouse.com/resources/authors?lastName=${lastName}&firstName=${firstName}`

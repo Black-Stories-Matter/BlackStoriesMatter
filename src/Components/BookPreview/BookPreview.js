@@ -12,24 +12,15 @@ const Wrapper = styled.div`
   margin: 1em;
 `;
 
-const BookPreview = (props) => {
+const BookPreview = ({ title, cover }) => {
   return (
     <Wrapper>
-      <h3>Title</h3>
-      <h4>Author</h4>
-      {/* <img src="" alt=""> */}
-      <p>description</p>
-      <p>category</p>
-      {/* <a href="">More info</a> */}
+      <h3>{title}</h3>
+      <img src={cover} alt={title} />
     </Wrapper>
   );
 };
 
-BookPreview.propTypes = {
-  book: PropTypes.object,
-  favorite: PropTypes.bool,
-  id: PropTypes.string,
-  toggleFavorites: PropTypes.func,
-};
+BookPreview.propTypes = {};
 
 export default BookPreview;

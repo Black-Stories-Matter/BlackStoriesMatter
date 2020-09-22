@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-
     fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books")
       .then((response) => response.json())
       .then(
@@ -55,7 +54,7 @@ class App extends Component {
               exact
               path="/books"
               render={() => {
-                return <BookContainer />;
+                return <BookContainer books={this.state.books} />;
               }}
             />
             <Route path="/error" render={() => <Error />} />

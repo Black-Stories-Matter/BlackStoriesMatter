@@ -12,28 +12,27 @@ const Wrapper = styled.div`
   margin: 0.5em;
 `;
 
-class BookContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      favorites: [],
-      favoritesIds: [],
-      filteredByAuthor: [],
-      useFavorites: false,
-    };
-  }
-
-  render() {
+const BookContainer = ({ books }) => {
+  const bookPreviews = books.map((book) => {
     return (
-      <Wrapper>
-        <h2>All Books</h2>
-      </Wrapper>
+      <BookPreview
+        authors={book.attributes.authors}
+        category={book.attributes.category}
+        cover={book.attributes.cover_image}
+        description={book.attributes.description}
+        info_link={book.attributes.info_link}
+        title={book.attributes.title}
+      />
     );
-  }
-}
-
-BookContainer.propTypes = {
-  bookInfo: PropTypes.array,
+  });
+  return (
+    <Wrapper>
+      <h2>Click on any book for more information!</h2>
+      {bookPreviews}
+    </Wrapper>
+  );
 };
+
+BookContainer.propTypes = {};
 
 export default BookContainer;
