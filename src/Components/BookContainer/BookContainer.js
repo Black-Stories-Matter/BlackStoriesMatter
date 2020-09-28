@@ -1,33 +1,29 @@
-import { theme } from "../../theme/globalStyle";
+// import { theme } from "../../theme/globalStyle";
+// import PropTypes from "prop-types";
 import BookPreview from "../BookPreview/BookPreview";
-import PropTypes from "prop-types";
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const { black, white } = theme;
-
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0.5em;
+  margin: 1em;
 `;
 
-const BookContainer = ({ books }) => {
-  const bookPreviews = books.map((book) => {
+// add in filter by category functionality
+// add in favorite functionality
+
+const BookContainer = (props) => {
+  const bookPreviews = props.books.map((book) => {
     return (
       <BookPreview
-        authors={book.attributes.authors}
-        category={book.attributes.category}
-        cover={book.attributes.cover_image}
-        description={book.attributes.description}
-        info_link={book.attributes.info_link}
-        title={book.attributes.title}
+        {...book}
+        key={book.id}
+        setSelectedBook={props.setSelectedBook}
       />
     );
   });
   return (
     <Wrapper>
-      <h2>Click on any book for more information!</h2>
+      <h2>Click any book for more information!</h2>
       {bookPreviews}
     </Wrapper>
   );

@@ -1,8 +1,7 @@
-// import Login from "../Login/Login";
-import { fetchBooks } from "../../apiCalls";
 import { GlobalStyle, theme } from "../../theme/globalStyle";
 import { Route, Redirect, Switch } from "react-router-dom";
 import BookContainer from "../BookContainer/BookContainer";
+import BookDetails from "../BookDetails/BookDetails";
 import Error from "../Error/Error";
 import Header from "../Header/Header";
 import React, { Component } from "react";
@@ -21,6 +20,7 @@ class App extends Component {
       books: [],
       error: null,
       isLoaded: false,
+      selectedBook: {},
     };
   }
 
@@ -37,27 +37,37 @@ class App extends Component {
       );
   };
 
+  setSelectedBook = (book) => {
+    this.setState({ selectedBook: book });
+  };
+
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
           <Header />
           <Switch>
+            <Route path="/" exact component={Welcome} />
             <Route
-              exact
-              path="/"
-              render={() => {
-                return <Welcome />;
-              }}
-            />
-            <Route
-              exact
               path="/books"
+              exact
               render={() => {
-                return <BookContainer books={this.state.books} />;
+                return (
+                  <BookContainer
+                    books={this.state.books}
+                    setSelectedBook={this.setSelectedBook}
+                  />
+                );
               }}
             />
-            <Route path="/error" render={() => <Error />} />
+            <Route
+              path="/books/:id"
+              exact
+              render={() => {
+                return <BookDetails selectedBook={this.state.selectedBook} />;
+              }}
+            />
+            <Route path="/error" component={Error} />
             <Redirect to="/error" />
           </Switch>
         </Wrapper>

@@ -1,14 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  margin: 1em;
+`;
 
 const Welcome = () => {
   return (
-    <div>
-      <h2>Welcome to BSM!</h2>
-      <h3>
-        Our mission is to share books by Black authors where readers can find
-        mirrors and windows.
-      </h3>
-      <h4>What are mirrors and windows in books?</h4>
+    <Wrapper>
+      <h2>
+        Our mission is to share children's books by Black authors where readers
+        can find mirrors and windows.
+      </h2>
+      <h3>What are mirrors and windows in books?</h3>
       <p>
         Mirrors reflect a reader's own life. Seeing yourself, your family and
         your culture being valued in the world of a book provides a powerful
@@ -23,7 +27,7 @@ const Welcome = () => {
         requesting them at libraries, or donating copies to schools and
         community centers!
       </p>
-    </div>
+    </Wrapper>
   );
 };
 

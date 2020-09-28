@@ -13,6 +13,6 @@ describe("Welcome", () => {
         <Welcome />
       </Router>
     );
-    expect(getByText("Welcome to BSM!")).toBeInTheDocument();
+    expect(getByText("Our mission")).toBeInTheDocument();
   });
 });

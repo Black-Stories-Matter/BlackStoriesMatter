@@ -1,24 +1,33 @@
+// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { theme } from "../../theme/globalStyle";
-import PropTypes from "prop-types";
+// import { theme } from "../../theme/globalStyle";
 import React from "react";
 import styled from "styled-components";
 
-const { black, white, yellow } = theme;
+// const { black, white, yellow } = theme;
 
 const Wrapper = styled.div`
-  background: ${black};
-  color: ${white};
   width: 100%;
-  padding: 0.5em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const NavBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 `;
 
 const Header = (props) => {
   return (
     <Wrapper>
       <h1>Black Stories Matter</h1>
-      <Link to="/">About BSM</Link>
-      <Link to="/books">Books</Link>
+      <NavBar>
+        <Link to="/">Welcome</Link>
+        <Link to="/books">Browse Books</Link>
+      </NavBar>
     </Wrapper>
   );
 };
