@@ -9,26 +9,12 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   
-  html {
-    height: 100%;
-    width: 100%;
-  }
+  html {}
 
-  body {
-    background-image: radial-gradient(#FFF3AC, #FFDE22);
-    color: #1D1E22;
-    font-family: 'Ubuntu', sans-serif;
-  }
+  body {}
 
-  h1 {
-    margin: .25em;
-  }
+  h1 {}
 
 `;
 
-export const theme = {
-  black: "#1D1E22",
-  red: "#FF2243",
-  white: "#FFFFFF",
-  yellow: "#FFDE22",
-};
+export const theme = {};
