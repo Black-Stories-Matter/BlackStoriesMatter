@@ -1,18 +1,18 @@
 import "@testing-library/jest-dom/extend-expect";
 import { cleanup, render } from "@testing-library/react";
 import { MemoryRouter as Router } from "react-router-dom";
-import Header from "./Header";
+import Welcome from "./Welcome";
 import React from "react";
 
-describe("Header", () => {
+describe("Welcome", () => {
   afterEach(cleanup);
 
-  it("should render Header", () => {
+  it("should render Welcome page", () => {
     const { getByText } = render(
       <Router>
-        <Header />
+        <Welcome />
       </Router>
     );
-    expect(getByText("Black Stories Matter")).toBeInTheDocument();
+    expect(getByText("Our mission")).toBeInTheDocument();
   });
 });

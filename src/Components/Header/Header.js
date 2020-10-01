@@ -1,65 +1,37 @@
+// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { theme } from "../../theme/globalStyle";
-import PropTypes from "prop-types";
+// import { theme } from "../../theme/globalStyle";
 import React from "react";
 import styled from "styled-components";
 
-const { black, white, yellow } = theme;
+// const { black, white, yellow } = theme;
 
 const Wrapper = styled.div`
-  background: ${black};
-  color: ${white};
   width: 100%;
-  padding: 0.5em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
-const UserMessage = styled.div`
-  align-items: center;
+const NavBar = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin: 0.5em;
-
-  button {
-    background: ${yellow};
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px ${white};
-    border: none;
-    cursor: pointer;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: bold;
-    font-size: 1em;
-    margin-bottom: 0.2em;
-    padding: 0.5em;
-  }
+  justify-content: space-around;
 `;
 
 const Header = (props) => {
-  const userMessage = () => {
-    return (
-      <UserMessage>
-        <p>
-          Welcome, {props.user.username}. <br /> We hope you find{" "}
-          {props.user.purpose} in our stories!
-        </p>
-        <Link to="/">
-          <button onClick={() => props.resetUser()}>Logout</button>
-        </Link>
-      </UserMessage>
-    );
-  };
-
   return (
     <Wrapper>
       <h1>Black Stories Matter</h1>
-      {props.user && userMessage()}
+      <NavBar>
+        <Link to="/">Welcome</Link>
+        <Link to="/books">Browse Books</Link>
+      </NavBar>
     </Wrapper>
   );
 };
 
-Header.propTypes = {
-  // user: PropTypes.object,
-  resetUser: PropTypes.func,
-};
+Header.propTypes = {};
 
 export default Header;

@@ -1,12 +1,12 @@
-import { fetchIsbns, fetchTitles } from "../../apiCalls";
 import { GlobalStyle, theme } from "../../theme/globalStyle";
 import { Route, Redirect, Switch } from "react-router-dom";
 import BookContainer from "../BookContainer/BookContainer";
+import BookDetails from "../BookDetails/BookDetails";
 import Error from "../Error/Error";
 import Header from "../Header/Header";
-import Login from "../Login/Login";
 import React, { Component } from "react";
 import styled, { ThemeProvider } from "styled-components";
+import Welcome from "../Welcome/Welcome";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -17,95 +17,57 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authors: [
-        ["Brown-Wood", "JaNay"],
-        ["Copeland", "Misty"],
-        ["Grimes", "Nikki"],
-        ["Johnson", "Angela"],
-        ["McKissack", "Patricia"],
-        ["Woodson", "Jacqueline"],
-      ],
-      allIsbns: [],
-      bookInfo: [],
-      user: "",
+      books: [],
+      error: null,
+      isLoaded: false,
+      selectedBook: {},
     };
   }
 
   componentDidMount = () => {
-    this.state.authors.map(async (a) => {
-      await fetchIsbns(a[0], a[1])
-        .then((result) =>
-          this.setState({ allIsbns: [...this.state.allIsbns, ...result] })
-        )
-        .then(() => this.getTitles())
-        .catch((error) => console.log("error", error));
-    });
+    fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books")
+      .then((response) => response.json())
+      .then(
+        (data) => {
+          this.setState({ books: data.data, isLoaded: true });
+        },
+        (error) => {
+          this.setState({ error, isLoaded: true });
+        }
+      );
   };
 
-  getTitles = () => {
-    this.state.allIsbns.map(async (isbn) => {
-      await fetchTitles(isbn)
-        .then((result) =>
-          this.setState({ bookInfo: [...this.state.bookInfo, ...result] })
-        )
-        .then(() => this.filterFormats())
-        .then(() => this.removeDuplicates())
-        .then(() => this.sortAlphabetically());
-    });
-  };
-
-  filterFormats = () => {
-    let filteredFormats = this.state.bookInfo.filter(
-      (book) => book.formatCode === "HC"
-    );
-    this.setState({ bookInfo: [...filteredFormats] });
-  };
-
-  removeDuplicates = () => {
-    let uniqueTitles = Array.from(
-      new Set(this.state.bookInfo.map((book) => book.title))
-    ).map((title) => {
-      return this.state.bookInfo.find((book) => book.title === title);
-    });
-    this.setState({ bookInfo: [...uniqueTitles] });
-  };
-
-  sortAlphabetically = () => {
-    let alphabetical = this.state.bookInfo.sort((a, b) =>
-      a.title > b.title ? 1 : -1
-    );
-    this.setState({ bookInfo: [...alphabetical] });
-  };
-
-  setUser = (user) => {
-    this.setState({ user: user });
-  };
-
-  resetUser = () => {
-    this.setState({ user: "" });
+  setSelectedBook = (book) => {
+    this.setState({ selectedBook: book });
   };
 
   render() {
     return (
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Header user={this.state.user} resetUser={this.resetUser} />
+          <Header />
           <Switch>
+            <Route path="/" exact component={Welcome} />
             <Route
+              path="/books"
               exact
-              path="/"
               render={() => {
-                return <Login setUser={this.setUser} />;
+                return (
+                  <BookContainer
+                    books={this.state.books}
+                    setSelectedBook={this.setSelectedBook}
+                  />
+                );
               }}
             />
             <Route
+              path="/books/:id"
               exact
-              path="/Books"
               render={() => {
-                return <BookContainer bookInfo={this.state.bookInfo} />;
+                return <BookDetails selectedBook={this.state.selectedBook} />;
               }}
             />
-            <Route path="/error" render={() => <Error />} />
+            <Route path="/error" component={Error} />
             <Redirect to="/error" />
           </Switch>
         </Wrapper>
