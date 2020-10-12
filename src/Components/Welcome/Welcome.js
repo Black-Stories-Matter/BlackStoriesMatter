@@ -8,11 +8,11 @@ const Wrapper = styled.div`
 const Welcome = () => {
   return (
     <Wrapper>
-      <h2>
+      <h3>
         Our mission is to share children's books by Black authors where readers
-        can find mirrors and windows.
-      </h2>
-      <h3>What are mirrors and windows in books?</h3>
+        can learn through mirrors and windows.
+      </h3>
+      <h4>What are mirrors and windows in books?</h4>
       <p>
         Mirrors reflect a reader's own life. Seeing yourself, your family and
         your culture being valued in the world of a book provides a powerful

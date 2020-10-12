@@ -12,12 +12,20 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  h1 {
+    align-self: center;
+  }
 `;
 
 const NavBar = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  a:focus {
+    font-weight: bold;
+  }
 `;
 
 const Header = (props) => {
