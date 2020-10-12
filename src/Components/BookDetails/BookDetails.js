@@ -6,11 +6,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
   img {
-    width: 90%;
-    max-width: 250px;
+    max-width: 100%;
+    min-height: 100%;
+    width: auto;
     height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  p {
+    margin-top: 0.25em;
   }
 `;
 

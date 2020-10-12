@@ -6,10 +6,29 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
   img {
-    width: 45%;
-    max-width: 200px;
+    max-width: 100%;
+    min-height: 100%;
+    width: auto;
     height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+`;
+
+const BookCard = styled.div`
+  border: solid white 1px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  h4 {
+    margin: 0.25em;
   }
 `;
 
@@ -24,8 +43,13 @@ const BookPreview = (props) => {
   return (
     <Wrapper>
       <Link to={pathName} onClick={handleSelectedBook}>
-        <h3>{props.attributes.title}</h3>
-        <img src={props.attributes.cover_image} alt={props.attributes.title} />
+        <BookCard>
+          <h4>{props.attributes.title}</h4>
+          <img
+            src={props.attributes.cover_image}
+            alt={props.attributes.title}
+          />
+        </BookCard>
       </Link>
     </Wrapper>
   );
