@@ -6,7 +6,9 @@ Other users visit for “Windows”, stories that give them a look into another 
 
 ## Future Iterations
 We would like to continue adding books to the database and add more functionality to the front end user interface.
-Please see the CONTRIBUTORS file if you are interested in contributing!
+Please see the CONTRIBUTING file if you are interested in making an open source contribution to this project!
+
+
 
 ## Installation
 - Fork and clone this repo into an empty directory on your local machine.
