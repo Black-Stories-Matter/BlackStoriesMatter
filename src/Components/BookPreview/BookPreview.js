@@ -1,14 +1,9 @@
-// import MdHeart from "react-ionicons/lib/MdHeart";
-// import MdHeartOutline from "react-ionicons/lib/MdHeartOutline";
 // import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-  /* justify-content: space-between; */
   img {
     max-width: 100%;
     min-height: 100%;

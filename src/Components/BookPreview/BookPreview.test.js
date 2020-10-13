@@ -10,9 +10,9 @@ describe("BookPreview", () => {
   it("should render BookPreview", () => {
     const { getByText } = render(
       <Router>
-        <BookPreview title={"AFTER TUPAC & D FOSTER"} />
+        <BookPreview title={"Becoming Kareem"} />
       </Router>
     );
-    expect(getByText("AFTER TUPAC & D FOSTER")).toBeInTheDocument();
+    expect(getByText("Becoming Kareem")).toBeInTheDocument();
   });
 });

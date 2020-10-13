@@ -1,4 +1,3 @@
-// import { theme } from "../../theme/globalStyle";
 // import PropTypes from "prop-types";
 import BookPreview from "../BookPreview/BookPreview";
 import React from "react";

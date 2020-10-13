@@ -13,6 +13,10 @@ describe("Welcome", () => {
         <Welcome />
       </Router>
     );
-    expect(getByText("Our mission")).toBeInTheDocument();
+    expect(
+      getByText(
+        "Our mission is to share children's books by Black authors where readers can learn through mirrors and windows."
+      )
+    ).toBeInTheDocument();
   });
 });

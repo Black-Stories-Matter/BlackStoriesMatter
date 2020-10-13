@@ -1,11 +1,10 @@
-import { GlobalStyle, theme } from "../../theme/globalStyle";
 import { Route, Redirect, Switch } from "react-router-dom";
 import BookContainer from "../BookContainer/BookContainer";
 import BookDetails from "../BookDetails/BookDetails";
 import Error from "../Error/Error";
 import Header from "../Header/Header";
 import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import Welcome from "../Welcome/Welcome";
 
 const Wrapper = styled.div`
@@ -43,36 +42,33 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <Wrapper>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={Welcome} />
-            <Route
-              path="/books"
-              exact
-              render={() => {
-                return (
-                  <BookContainer
-                    books={this.state.books}
-                    setSelectedBook={this.setSelectedBook}
-                  />
-                );
-              }}
-            />
-            <Route
-              path="/books/:id"
-              exact
-              render={() => {
-                return <BookDetails selectedBook={this.state.selectedBook} />;
-              }}
-            />
-            <Route path="/error" component={Error} />
-            <Redirect to="/error" />
-          </Switch>
-        </Wrapper>
-        <GlobalStyle />
-      </ThemeProvider>
+      <Wrapper>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Welcome} />
+          <Route
+            path="/books"
+            exact
+            render={() => {
+              return (
+                <BookContainer
+                  books={this.state.books}
+                  setSelectedBook={this.setSelectedBook}
+                />
+              );
+            }}
+          />
+          <Route
+            path="/books/:id"
+            exact
+            render={() => {
+              return <BookDetails selectedBook={this.state.selectedBook} />;
+            }}
+          />
+          <Route path="/error" component={Error} />
+          <Redirect to="/error" />
+        </Switch>
+      </Wrapper>
     );
   }
 }
