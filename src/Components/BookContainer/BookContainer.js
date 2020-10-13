@@ -8,6 +8,14 @@ const Wrapper = styled.div`
   margin: 1em;
 `;
 
+const BookCards = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+`;
+
 // add in filter by category functionality
 // add in favorite functionality
 
@@ -23,8 +31,8 @@ const BookContainer = (props) => {
   });
   return (
     <Wrapper>
-      <h2>Click any book for more information!</h2>
-      {bookPreviews}
+      <h3>Click any book for more information!</h3>
+      <BookCards>{bookPreviews}</BookCards>
     </Wrapper>
   );
 };
