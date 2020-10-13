@@ -14,3 +14,9 @@ Please see the CONTRIBUTING file if you are interested in making an open source 
 - Run `npm start` to run the application in development mode.
 - Visit http://localhost:3000 to view in the browser.
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Contributors
+- Front End [Repo](https://github.com/Black-Stories-Matter/black-stories-matter-fe) 
+  - [Lauren Lucero](https://github.com/laurenlucero)
+- Back End [Repo](https://github.com/Black-Stories-Matter/black_stories_matter_api) 
+  - [Krista Stadler](https://github.com/kristastadler)
