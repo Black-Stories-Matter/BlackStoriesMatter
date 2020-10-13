@@ -2,11 +2,11 @@
 The goal of Black Stories Matter is to showcase a database of children's books by Black authors for educators, families and youth. 
 Black users can find “Mirrors”, stories they see themselves in. Other users visit for “Windows”, stories that give them a look into another experience.
 
+![Screenshots](BSMWelcome.png)
+
 ## Future Iterations
 We would like to continue adding books to the database and add more functionality to the front end user interface.
 Please see the CONTRIBUTING file if you are interested in making an open source contribution to this project!
-
-![Screenshots](BSMWelcome.png)
 
 ## Installation
 - Fork and clone this repo into an empty directory on your local machine.
