@@ -7,20 +7,18 @@ What does it take to be an open source contributor? Just a GitHub account, some 
 - You can also submit a bug report or feature request by clicking New issue.
 
 ## 2. Make and download your copy
-- Fork the repository to make a copy of the project where you can work.
+- Fork the repository to make a copy of the project to work from.
 - Clone the fork to download to your local machine.
+- Run `npm install` to install the dependencies.
 
 ## 3. Make a git branch
 - Use command `git-checkout-b` with a descriptive name for your branch that summarizes the issue you are working on.
 
-## 4. Install dependencies
-- Run `npm install` to install the dependencies.
-
-## 5. Do the work!
+## 4. Do the work!
 - When you have some code that you want to keep, save it in git by creating a commit.
 - Run the tests (if there are any), if tests fail fix your code or the test.
 
-## 6. Open a Pull Request (PR)
+## 5. Open a Pull Request (PR)
 - When you have work that is ready for review to add to the project, notify the project maintainers by requesting they pull your changes in.
 - Go to your fork of the project, click on the Pull Requests tab and the New Pull Request button.
 - The "base fork" should automatically be the main project and master branch.
