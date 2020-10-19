@@ -15,7 +15,7 @@ Black users can find “Mirrors”, stories they see themselves in. Other users 
 
 ## Future Iterations
 We would like to continue adding books to the database and add more functionality to the front end user interface.
-Please see the CONTRIBUTING file if you are interested in making an open source contribution to this project!
+Please see the [CONTRIBUTING](CONTRIBUTING.md) file if you are interested in making an open source contribution to this project!
 
 ## Contributors
 - Front End [Repo](https://github.com/Black-Stories-Matter/black-stories-matter-fe) 
