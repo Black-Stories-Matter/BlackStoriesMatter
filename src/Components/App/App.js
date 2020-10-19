@@ -24,7 +24,12 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books")
+    fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books", {
+      //request headers
+      headers: {
+        'Access-Control-Allow-Origin': 'https://black-stories-matter-api.herokuapp.com'
+      }
+    })
       .then((response) => response.json())
       .then(
         (data) => {
