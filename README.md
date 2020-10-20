@@ -2,8 +2,8 @@
 The goal of Black Stories Matter is to showcase a database of children's books by Black authors for educators, families and youth. 
 Black users can find “Mirrors”, stories they see themselves in. Other users visit for “Windows”, stories that give them a look into another experience.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cf7cb230-e741-4712-9c37-083b751bf4ed/deploy-status)](https://app.netlify.com/sites/black-stories-matter/deploys) - [Deployed application](https://black-stories-matter.netlify.app/)
 ![Screenshots](BSMWelcome.png)
-[Deployed application](https://blackstoriesmatter.herokuapp.com/)
 
 ## Installation
 - Fork and clone this repo into an empty directory on your local machine.
