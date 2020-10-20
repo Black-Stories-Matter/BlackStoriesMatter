@@ -9,7 +9,6 @@ Black users can find “Mirrors”, stories they see themselves in. Other users 
 - Fork and clone this repo into an empty directory on your local machine.
 - Run `npm install` in your teminal to install the project's dependencies.
 - Run `npm start` to run the application in development mode.
-- Visit http://localhost:3000 to view in the browser.
 
 ## Technologies
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
