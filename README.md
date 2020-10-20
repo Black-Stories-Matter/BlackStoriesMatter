@@ -3,6 +3,7 @@ The goal of Black Stories Matter is to showcase a database of children's books b
 Black users can find “Mirrors”, stories they see themselves in. Other users visit for “Windows”, stories that give them a look into another experience.
 
 ![Screenshots](BSMWelcome.png)
+[Deployed application](https://blackstoriesmatter.herokuapp.com/)
 
 ## Installation
 - Fork and clone this repo into an empty directory on your local machine.
@@ -12,6 +13,7 @@ Black users can find “Mirrors”, stories they see themselves in. Other users 
 
 ## Technologies
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project was styled mobile-first with [styled-components](https://styled-components.com/docs/basics) and [Bahunya](https://github.com/Kimeiga/bahunya), a classless CSS framework with responsive typography, navbar, and syntax highlighting.
 
 ## Future Iterations
 We would like to continue adding books to the database and add more functionality to the front end user interface.
