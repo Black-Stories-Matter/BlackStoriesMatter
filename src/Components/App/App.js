@@ -27,8 +27,8 @@ class App extends Component {
     fetch("https://black-stories-matter-api.herokuapp.com/api/v1/books", {
       //request headers
       headers: {
-        'Access-Control-Allow-Origin': 'https://black-stories-matter-api.herokuapp.com'
-      }
+        "Access-Control-Allow-Origin": "*",
+      },
     })
       .then((response) => response.json())
       .then(
